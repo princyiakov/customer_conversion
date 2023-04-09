@@ -6,7 +6,9 @@ import numpy as np
 
 app = Flask(__name__)
 
-model = joblib.load(open('model/model.pkl', 'rb'))
+model = joblib.load(open('model/rf_model.pkl', 'rb'))
+encoder = joblib.load(open('model/endoder.pkl', 'rb'))
+scalar = joblib.load(open('model/scalar.pkl', 'rb'))
 
 
 @app.route('/')
@@ -14,12 +16,7 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.form.to_dict()
-
-    # Convert the input data to a pandas dataframe
-    X = pd.DataFrame(data, index=[0])
+def preprocess(dataframe):
     # Define the data types of the columns to be changed
     to_change = {'family_size': 'int64', 'investment_account': 'int64',
                  'income': 'float64',
@@ -28,11 +25,27 @@ def predict():
                  }
     # Create a new dictionary with the changed data types
     for col, dtype in to_change.items():
-        X[col] = np.array(X[col], dtype=dtype)
+        dataframe[col] = np.array(dataframe[col], dtype=dtype)
+    dataframe = dataframe[['education', 'investment_account','income', 'family_size','creditc_avg_spent', 'mortgage']]
+    cols_to_encode = ['education', 'investment_account']
+    cols_to_scale = ['income', 'family_size', 'creditc_avg_spent', 'mortgage']
+    dataframe[cols_to_encode] = encoder.transform(dataframe[cols_to_encode])
+    dataframe[cols_to_scale] = scalar.transform(dataframe[cols_to_scale])
 
-    output = model.predict(X)
-    prediction = "Will take Personal Loan" if output[0]==1 else "Will NOT take Personal Loan"
-    return render_template("home.html",prediction_text=f'FINAL PREDICTION: {prediction}')
+    return dataframe
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.form.to_dict()
+
+    # Convert the input data to a pandas dataframe
+    df = pd.DataFrame(data, index=[0])
+    df = preprocess(df)
+
+    output = model.predict(df)
+    prediction = "Will take Personal Loan" if output[0] == 1 else "Will NOT take Personal Loan"
+    return render_template("home.html", prediction_text=f'FINAL PREDICTION: {prediction}')
 
 
 if __name__ == "__main__":
