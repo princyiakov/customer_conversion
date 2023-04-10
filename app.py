@@ -1,5 +1,4 @@
-import pickle
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import joblib
 import pandas as pd
 import numpy as np
@@ -7,6 +6,8 @@ import numpy as np
 app = Flask(__name__)
 
 model = joblib.load(open('model/rf_model.pkl', 'rb'))
+cat_fillnan = joblib.load(open('model/cat_fillnan.pkl', 'rb'))
+num_fillnan = joblib.load(open('model/num_fillnan.pkl', 'rb'))
 encoder = joblib.load(open('model/endoder.pkl', 'rb'))
 scalar = joblib.load(open('model/scalar.pkl', 'rb'))
 
@@ -17,6 +18,12 @@ def home():
 
 
 def preprocess(dataframe):
+    dataframe = dataframe[['education', 'investment_account', 'income', 'family_size', 'creditc_avg_spent', 'mortgage']]
+    cols_to_encode = ['education', 'investment_account']
+    cols_to_scale = ['income', 'family_size', 'creditc_avg_spent', 'mortgage']
+
+    dataframe = dataframe.replace('', np.nan)
+
     # Define the data types of the columns to be changed
     to_change = {'family_size': 'int64', 'investment_account': 'int64',
                  'income': 'float64',
@@ -26,9 +33,9 @@ def preprocess(dataframe):
     # Create a new dictionary with the changed data types
     for col, dtype in to_change.items():
         dataframe[col] = np.array(dataframe[col], dtype=dtype)
-    dataframe = dataframe[['education', 'investment_account','income', 'family_size','creditc_avg_spent', 'mortgage']]
-    cols_to_encode = ['education', 'investment_account']
-    cols_to_scale = ['income', 'family_size', 'creditc_avg_spent', 'mortgage']
+
+    dataframe[cols_to_encode] = cat_fillnan.transform(dataframe[cols_to_encode])
+    dataframe[cols_to_scale] = num_fillnan.transform(dataframe[cols_to_scale])
     dataframe[cols_to_encode] = encoder.transform(dataframe[cols_to_encode])
     dataframe[cols_to_scale] = scalar.transform(dataframe[cols_to_scale])
 
