@@ -7,12 +7,15 @@ import numpy as np
 from src.exception import CustomException
 from src.utils import load_object, BASE_DIR
 
-
+# Define class for prediction pipeline
 class PredictPipeline:
     def __init__(self):
         pass
 
     def predict(self, features):
+        """
+        This Function performs prediction
+        """
         try:
             model_path = os.path.join(BASE_DIR, 'model', 'model.pkl')
             preprocessor_path = os.path.join(BASE_DIR, 'model', 'preprocessor.pkl')
@@ -27,7 +30,7 @@ class PredictPipeline:
         except Exception as e:
             raise CustomException(e, sys)
 
-
+# Define class for creating Custom Dataset
 class CustomData:
     def __init__(self,
                  education: str,

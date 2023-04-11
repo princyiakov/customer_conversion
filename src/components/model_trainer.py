@@ -15,18 +15,19 @@ from src.logger import logging
 
 from src.utils import save_object, evaluate_models, BASE_DIR
 
-
+# Define a dataclass to hold configuration parameters
 @dataclass
 class ModelTrainerConfig:
     trained_model_file_path = os.path.join(BASE_DIR, 'model', 'model.pkl')
 
-
+# Define a class to train the model
 class ModelTrainer:
     def __init__(self):
         self.model_trainer_config = ModelTrainerConfig()
 
     def initiate_model_trainer(self, train_array, test_array):
         try:
+            # Split the data to train and test
             logging.info("Split training and test input data")
             X_train, y_train, X_test, y_test = (
                 train_array[:, :-1],
@@ -34,12 +35,14 @@ class ModelTrainer:
                 test_array[:, :-1],
                 test_array[:, -1]
             )
+            # Define the models to explore
             models = {
                 "Random Forest": RandomForestClassifier(),
                 "Gradient Boosting": GradientBoostingClassifier(),
                 "XGBClassifier": XGBClassifier(),
                 "KNeighborsClassifier": KNeighborsClassifier(),
             }
+            # Define the parameters to explore
             params = {
                 "Random Forest": {
                     'n_estimators': [8, 16, 32, 64, 128, 256]
@@ -60,6 +63,7 @@ class ModelTrainer:
 
             }
 
+            # Create model report
             model_report: dict = evaluate_models(X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test,
                                                  models=models, param=params)
 
@@ -72,6 +76,7 @@ class ModelTrainer:
             ]
             best_model = models[best_model_name]
 
+            # If model performace is less than 60% declare no best model found
             if best_model_score < 0.6:
                 raise CustomException("No best model found")
             logging.info(f"Best found model on testing dataset")
@@ -81,8 +86,10 @@ class ModelTrainer:
                 obj=best_model
             )
 
+            # Predict output based on best model
             predicted = best_model.predict(X_test)
 
+            # Return the ROC AUC Score
             roc_auc = roc_auc_score(y_test, predicted)
             return roc_auc
 
