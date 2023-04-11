@@ -24,14 +24,10 @@ def predict():
 
     pred_df = data.get_data_as_data_frame()
     print(pred_df)
-    print("Before Prediction")
-
     predict_pipeline = PredictPipeline()
-    print("Mid Prediction")
     results = predict_pipeline.predict(pred_df)
-    print("after Prediction")
     return render_template('home.html', prediction_text=f'FINAL PREDICTION: {results}')
 
 
 if __name__ == "__main__":
-    app.run(port=3000, debug=True)
+    app.run(host="0.0.0.0", port=3000, debug=True)
