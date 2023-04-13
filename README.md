@@ -1,4 +1,4 @@
-<img alt="customer_conversion" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/attract-customer.png">
+<img alt="customer_conversion" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/attract-customers.png">
 
 # Customer Conversion
 
@@ -66,7 +66,7 @@ The following were the  performance metrics of the models
 <img alt="evaluation" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/evaluation.png">
 
 
-##### Our Primary Target Audience should be 
+### Our Primary Target Audience should be 
 - Income ranging between 122k to 172k
 - Credit card average spending ranging between 2.6k to 5.4k
 - People with deposit account
