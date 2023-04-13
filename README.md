@@ -9,14 +9,16 @@ increase the success ratio with minimal budget.
 
 <!-- toc -->
 - [Our Goal](#our-goal)
-- [Notebook File](#notebook-file)
+- [Notebook Files](#notebook-files)
 - [Presentation File](#presentation_file)
 - [How Were We Able To Predict The Progression](#how-were-we-able-to-predict-the-progression)
   - [Feature Engineering](#feature-engineering)
+  - [Handling Missing Features](#handling-missing-features)
+  - [Scaling](#scaling)
   - [Feature Selection](#feature-selection)
   - [Handling Imbalanced Data](#handling-imbalanced-data)
   - [Model Evaluation and Selection](#model-evaluation-and-selection)
-
+- [Our Primary Target Audience](#our-primary-target-audience)
 - [Web Application](#web-application)
 - [Dockerfile](#dockerfile)
 <!-- tocstop -->
@@ -41,7 +43,7 @@ Explored various models like Random Forest, Gradient Boosting, XGBClassifier, KN
 
 ### Feature Engineering
 - Feature Engineered Experience  :
-    - Featured engineered Experience feature to gain insights with the data but the Heat map of Corelation matrix showed Experince field is not a good feature to conside
+    - Featured engineered Experience feature to gain insights with the data but the Heat map of Correlation matrix showed Experience field is not a good feature to conside
 
 ### Handling Missing Features
 - Categorical data :
@@ -66,7 +68,10 @@ The following were the  performance metrics of the models
 <img alt="evaluation" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/evaluation.png">
 
 
-### Our Primary Target Audience should be 
+### Our Primary Target Audience
 - Income ranging between 122k to 172k
 - Credit card average spending ranging between 2.6k to 5.4k
 - People with deposit account
+
+### Web Application
+<img alt="webapp" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/webapp.png">
