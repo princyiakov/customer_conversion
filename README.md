@@ -26,7 +26,7 @@ Using the Data set, help to build a Machine Learning Model which can predict if 
 if the targeted Marketing Campaign is done
 
 ## Notebook Files
-Here is the link to the [EDA HTML](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_1_Data_Cleaning_EDA.html) for better visualisation
+Here is the link to the [EDA HTML](https://github.com/princyiakov/customer_conversion/blob/main/resources/task_1_Data_Cleaning_EDA.html) for better visualisation
 
 Here is the link to the [EDA Notebook](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_1_Data_Cleaning_EDA.ipynb)
 
