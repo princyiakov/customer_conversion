@@ -9,8 +9,8 @@ increase the success ratio with minimal budget.
 
 <!-- toc -->
 - [Our Goal](#our-goal)
-- [Notebook Files](#notebook-files)
 - [Presentation File](#presentation-file)
+- [Notebook Files](#notebook-files)
 - [How Were We Able To Predict The Progression](#how-were-we-able-to-predict-the-progression)
   - [Feature Engineering](#feature-engineering)
   - [Handling Missing Features](#handling-missing-features)
@@ -27,15 +27,14 @@ increase the success ratio with minimal budget.
 Using the Data set, help to build a Machine Learning Model which can predict if a Customer would take up Personal Loan 
 if the targeted Marketing Campaign is done
 
+## Presentation File
+Here is the link to the [Presentation PDF](https://github.com/princyiakov/customer_conversion/blob/main/resources/Data_Scientist_Assignment.pdf)
+
 ## Notebook Files
-Here is the link to the [EDA HTML](https://github.com/princyiakov/customer_conversion/blob/main/resources/task_1_Data_Cleaning_EDA.html) for better visualisation
 
 Here is the link to the [EDA Notebook](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_1_Data_Cleaning_EDA.ipynb)
 
 Here is the link to the [Feature Selection & Modelling](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_2_FeatureSelection_Modelling_Pipeline.ipynb)
-
-## Presentation File
-Here is the link to the [Presentation File](https://github.com/princyiakov/customer_conversion/blob/main/resources/Data_Scientist_Assignment.pdf)
 
 
 ## How Were We Able To Predict The Progression
@@ -77,6 +76,12 @@ The following were the  performance metrics of the models
 <img alt="webapp" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/webapp.png">
 
 ### Dockerfile
+
+First clone the repo 
+```
+git clone https://github.com/princyiakov/customer_conversion.git
+cd customer_conversion
+```
 
 If you have docker installed, run the following command to access the webapp on http://localhost:3000
 ```
