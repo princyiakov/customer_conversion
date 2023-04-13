@@ -14,6 +14,7 @@ def home():
 def predict():
     data = CustomData(
         education=request.form.get('education'),
+        deposit_account=int(request.form.get('deposit_account')),
         investment_account=int(request.form.get('investment_account')),
         income=request.form.get('income'),
         family_size=request.form.get('family_size'),

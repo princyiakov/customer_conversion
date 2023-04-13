@@ -7,6 +7,7 @@ import numpy as np
 from src.exception import CustomException
 from src.utils import load_object, BASE_DIR
 
+
 # Define class for prediction pipeline
 class PredictPipeline:
     def __init__(self):
@@ -30,10 +31,12 @@ class PredictPipeline:
         except Exception as e:
             raise CustomException(e, sys)
 
+
 # Define class for creating Custom Dataset
 class CustomData:
     def __init__(self,
                  education: str,
+                 deposit_account : int,
                  investment_account: int,
                  income: float,
                  family_size,
@@ -41,6 +44,8 @@ class CustomData:
                  mortgage: float):
 
         self.education = education
+
+        self.deposit_account = deposit_account
 
         self.investment_account = investment_account
 
@@ -56,6 +61,7 @@ class CustomData:
         try:
             custom_data_input_dict = {
                 "education": [self.education],
+                "deposit_account": [self.deposit_account],
                 "investment_account": [self.investment_account],
                 "income": [self.income],
                 "family_size": [self.family_size],

@@ -21,6 +21,7 @@ from src.utils import save_object, BASE_DIR
 class DataTransformationConfig:
     preprocessor_obj_file_path = os.path.join(BASE_DIR, 'model', "preprocessor.pkl")
 
+
 # Define a class to perform data transformation operations
 class DataTransformation:
     def __init__(self):
@@ -77,7 +78,9 @@ class DataTransformation:
             # Define the target column name and mapping, and the selected column names
             target_column_name = "personal_loan"
             target_mapping = {'YES': 1, 'NO': 0}
-            selected_column_names = ['education', 'investment_account', 'income', 'family_size', 'creditc_avg_spent',
+            selected_column_names = ['education', 'deposit_account',
+                                     'investment_account', 'income',
+                                     'family_size', 'creditc_avg_spent',
                                      'mortgage']
 
             # Extract the input and target features from the dataframes
