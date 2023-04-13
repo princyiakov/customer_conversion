@@ -10,7 +10,7 @@ increase the success ratio with minimal budget.
 <!-- toc -->
 - [Our Goal](#our-goal)
 - [Notebook Files](#notebook-files)
-- [Presentation File](#presentation_file)
+- [Presentation File](#presentation-file)
 - [How Were We Able To Predict The Progression](#how-were-we-able-to-predict-the-progression)
   - [Feature Engineering](#feature-engineering)
   - [Handling Missing Features](#handling-missing-features)
@@ -75,3 +75,12 @@ The following were the  performance metrics of the models
 
 ### Web Application
 <img alt="webapp" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/webapp.png">
+
+### Dockerfile
+
+If you have docker installed, run the following command to access the webapp on http://localhost:3000
+```aidl
+docker build -t customer_conversion .
+docker run -p 3000:3000 customer_conversion
+
+```
