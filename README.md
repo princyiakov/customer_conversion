@@ -79,8 +79,7 @@ The following were the  performance metrics of the models
 ### Dockerfile
 
 If you have docker installed, run the following command to access the webapp on http://localhost:3000
-```aidl
+```
 docker build -t customer_conversion .
 docker run -p 3000:3000 customer_conversion
-
 ```
