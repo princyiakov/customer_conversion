@@ -30,10 +30,10 @@ Here is the link to the [EDA HTML](https://github.com/princyiakov/customer_conve
 
 Here is the link to the [EDA Notebook](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_1_Data_Cleaning_EDA.ipynb)
 
-Here is the link to the [Feature Selection & Modelling](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_2_FeatureSelection_Modelling_Pipeline.ipynb)
+Here is the link to the [Feature Selection & Modelling](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/Data_Scientist_Assignment.pdf)
 
-## Presentation File]
-Here is the link to the [Presentation File](https://github.com/princyiakov/customer_conversion/blob/main/notebooks/task_2_FeatureSelection_Modelling_Pipeline.ipynb)
+## Presentation File
+Here is the link to the [Presentation File](https://github.com/princyiakov/customer_conversion/blob/main/resources/.ipynb)
 
 
 ## How Were We Able To Predict The Progression
