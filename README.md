@@ -80,7 +80,7 @@ The following were the  performance metrics of the models
 4. [predict_pipeline.py](https://github.com/princyiakov/customer_conversion/blob/main/src/pipeline/predict_pipeline.py) : To predict the data created using CustomData class
 5. [app.py](https://github.com/princyiakov/customer_conversion/blob/main/app.py) : For running the front end application to predict if the person will take personal loan
 
-Other Scipts include : 
+Other Scripts include : 
 1. [utils.py](https://github.com/princyiakov/customer_conversion/blob/main/src/utils.py) : For common function used in the project
 2. [logger.py](https://github.com/princyiakov/customer_conversion/blob/main/src/logger.py) : For improved logging 
 3. [exception.py](https://github.com/princyiakov/customer_conversion/blob/main/src/exception.py) : For logging errors along with line number of error along with file name
