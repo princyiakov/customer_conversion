@@ -19,6 +19,7 @@ increase the success ratio with minimal budget.
   - [Handling Imbalanced Data](#handling-imbalanced-data)
   - [Model Evaluation and Selection](#model-evaluation-and-selection)
 - [Our Primary Target Audience](#our-primary-target-audience)
+- [Coding Scripts](#coding-scripts)
 - [Web Application](#web-application)
 - [Dockerfile](#dockerfile)
 <!-- tocstop -->
@@ -71,6 +72,18 @@ The following were the  performance metrics of the models
 - Income ranging between 122k to 172k
 - Credit card average spending ranging between 2.6k to 5.4k
 - People with deposit account
+
+### Coding Scripts
+1. [data_ingestion.py](https://github.com/princyiakov/customer_conversion/blob/main/src/components/data_ingestion.py) : For ingesting train, test and raw data along with the trained model
+2. [data_transformation.py](https://github.com/princyiakov/customer_conversion/blob/main/src/components/data_transformation.py) : For handling missing values, scaling and oversampling with SMOTE
+3. [model_trainer.py](https://github.com/princyiakov/customer_conversion/blob/main/src/components/model_trainer.py) : For training different models on various hyper parameters and choosing the best based on ROC AUC Score
+4. [predict_pipeline.py](https://github.com/princyiakov/customer_conversion/blob/main/src/pipeline/predict_pipeline.py) : To predict the data created using CustomData class
+5. [app.py](https://github.com/princyiakov/customer_conversion/blob/main/app.py) : For running the front end application to predict if the person will take personal loan
+
+Other Scipts include : 
+1. [utils.py](https://github.com/princyiakov/customer_conversion/blob/main/src/utils.py) : For common function used in the project
+2. [logger.py](https://github.com/princyiakov/customer_conversion/blob/main/src/logger.py) : For improved logging 
+3. [exception.py](https://github.com/princyiakov/customer_conversion/blob/main/src/exception.py) : For logging errors along with line number of error along with file name
 
 ### Web Application
 <img alt="webapp" src="https://raw.githubusercontent.com/princyiakov/customer_conversion/main/resources/webapp.png">
